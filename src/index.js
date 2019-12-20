@@ -5,7 +5,7 @@ $(function() {
 
     $(`.loader`).hide();
     $(`.logoContainer`).append(function() {
-        return  $(`<img class="logo" alt=""></img>`)
+        return  $(`<img class="logo" alt="instanewssite"></img>`)
             .attr(`src`, logoimg)
     });
 
@@ -47,9 +47,7 @@ $(function() {
                     if (x.short_url) {
                         link = x.short_url;
                     }
-                    if (x.multimedia[2] && $(window).width() <= 599) {
-                        image = x.multimedia[2].url
-                    }
+                    
                     else if (x.multimedia[3] && $(window).width() <= 1249) {
                         image = x.multimedia[3].url
                     }
@@ -110,6 +108,7 @@ const constants = {
     },
 
     onFail() {
+        $(`.articlesContainer`).text(' ')
         $(`.articlesContainer`).append(function() {
             return $(`<p>Could not generate content. Please try again later. If the issue persists, contact the website administrator.</p>`)
                 .attr(`class`, `failToLoad`)
